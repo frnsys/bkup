@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# send vids from a directory to the remote comp
+
+rsync -avu --progress ~/Downloads/mytv ftseng@pony.local:~/Desktop/tv/
