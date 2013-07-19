@@ -51,6 +51,7 @@ Backs up the local machine's `Desktop` directories to the
 remote machine's `repos` directory. Then it calls the `backitup.pony` on
 the remote machine (see below).
 
+---
 
 `backitup.pony`
 
@@ -65,6 +66,7 @@ the local machine (i.e. a destructive sync).
 $ sh backitup [delete]
 ```
 
+---
 
 `backitup.mini`
 
@@ -77,6 +79,7 @@ Specify the volume name, as listed in `/Volumes`.
 $ sh backitup.mini [volume] [delete]
 ```
 
+---
 
 `fullbackitup`
 
@@ -88,6 +91,7 @@ additional files are sent to the remote machines `backup` directory.
 $ sh fullbackitup [delete]
 ```
 
+---
 
 `sendvids`
 This will send any files in the local machine's
