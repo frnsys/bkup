@@ -43,7 +43,7 @@ locations. There is a primary one, known in these scripts as `outerspace`.
 
 ## The scripts
 
-There are a few scripts, each with a different functinoality:
+There are a few scripts, each with a different functionality:
 
 `backitup`
 
