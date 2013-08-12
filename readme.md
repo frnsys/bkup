@@ -32,6 +32,7 @@ The remote machine has a home directory structure like:
 ├── Desktop
 │   ├── backup
 │   ├── repos
+│   ├── archives
 │   └── tv
 ```
 
@@ -71,12 +72,12 @@ $ sh backitup [delete]
 `backitup.mini`
 
 Backs up from the local (or remote, depends where it
-is run) machine to a specified external HDD.
+is run) machine to an auto-detected external HDD.
 
-Specify the volume name, as listed in `/Volumes`.
+The valid names of volumes are specified in the script.
 
 ```bash
-$ sh backitup.mini [volume] [delete]
+$ sh backitup.mini [delete]
 ```
 
 ---
