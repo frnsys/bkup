@@ -14,10 +14,12 @@ then
 	if [[ $a == "Y" || $a == "y" ]]; then
 		rsync -avu --progress --delete ~/Desktop/repos /Volumes/outerspace
 		rsync -avu --progress --delete ~/Desktop/tv /Volumes/outerspace
+		rsync -avu --progress --delete ~/Desktop/archives /Volumes/outerspace
 	else
 	  echo "Not doing it"
 	fi
 else
 	rsync -avu --progress ~/Desktop/repos /Volumes/outerspace
 	rsync -avu --progress ~/Desktop/tv /Volumes/outerspace
+	rsync -avu --progress ~/Desktop/archives /Volumes/outerspace
 fi
