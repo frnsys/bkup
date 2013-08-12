@@ -1,22 +1,32 @@
 #!/bin/bash
 
 # This script will back up these specified local directories to attached external HDDs.
-# To add other harddrives, just add other rsync lines pointing to the appropriate
-# HDD, such as /Volumes/myexthdd
+# To add other harddrives, add them after the other drive names in the `for NAME` loop.
 
-if [[ $2 == "delete" ]]
+delete=""
+if [[ $1 == "delete" ]]
 then
 	echo "Are you sure you want to rsync with the delete flag? y/n"
 	read a
 	if [[ $a == "Y" || $a == "y" ]]; then
-		rsync -avu --progress --delete ~/Desktop/repos /Volumes/$1
-		rsync -avu --progress --delete ~/Desktop/tv /Volumes/$1
-		rsync -avu --progress --delete ~/Desktop/archives /Volumes/$1
+        delete="--delete"
 	else
 	  echo "Not doing it"
 	fi
-else
-	rsync -avu --progress ~/Desktop/repos /Volumes/$1
-    rsync -avu --progress ~/Desktop/tv /Volumes/$1
-    rsync -avu --progress ~/Desktop/archives /Volumes/$1
 fi
+
+# Back up to other mounted known drives.
+for NAME in pony THX1189 Dump
+do
+    if [ `ls -1 /Volumes/ | grep $NAME` ]; then
+        echo -e "\nDrive $NAME was found, backing up to it..."
+        rsync -avu --progress $delete ~/Desktop/repos /Volumes/$NAME
+        rsync -avu --progress $delete ~/Desktop/archives /Volumes/$NAME
+
+        # Only certain drives have `tv` backed up to it.
+        # Drive names here are space-delimited.
+        if [[ "pony Dump" == *"$NAME"* ]]; then
+            rsync -avu --progress $delete ~/Desktop/tv /Volumes/$NAME
+        fi
+    fi
+done
