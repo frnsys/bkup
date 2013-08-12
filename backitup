@@ -3,33 +3,25 @@
 # usage: $ sh ./backitup
 # or, to sync with delete, $ sh ./backitup delete
 
+delete=""
 if [[ $1 == "delete" ]]
 then
 	echo "Are you sure you want to rsync with the delete flag? y/n"
 	read a
 	if [[ $a == "Y" || $a == "y" ]]; then
-		rsync -avu --progress --delete ~/Desktop/work ftseng@pony.local:~/Desktop/repos
-		rsync -avu --progress --delete ~/Desktop/projects ftseng@pony.local:~/Desktop/repos
-		rsync -avu --progress --delete ~/Desktop/STUFF ftseng@pony.local:~/Desktop/repos
-		rsync -avu --progress --delete ~/Desktop/graphics ftseng@pony.local:~/Desktop/repos
-		rsync -avu --progress --delete ~/Desktop/informations ftseng@pony.local:~/Desktop/repos
-
-		echo "Pushing backups to outerspace HDD..."
-	echo "Please provide password for ftseng@pony.local"
-	now=$(date +"%m_%d_%Y" | tr -d "\n")
-	ssh ftseng@pony.local "sed -i '' -e '1s/.*/'$now'/' ~/Desktop/repos/_lastupdated.txt; bash backitup delete"
+        delete="--delete"
 	else
-	  echo "Not doing it"
+	    echo "Not doing it"
 	fi
-else
-	rsync -avu --progress ~/Desktop/work ftseng@pony.local:~/Desktop/repos
-	rsync -avu --progress ~/Desktop/projects ftseng@pony.local:~/Desktop/repos
-	rsync -avu --progress ~/Desktop/STUFF ftseng@pony.local:~/Desktop/repos
-	rsync -avu --progress ~/Desktop/graphics ftseng@pony.local:~/Desktop/repos
-	rsync -avu --progress ~/Desktop/informations ftseng@pony.local:~/Desktop/repos
-
-	echo "Pushing backups to outerspace HDD..."
-	echo "Please provide password for ftseng@pony.local"
-	now=$(date +"%m_%d_%Y" | tr -d "\n")
-	ssh ftseng@pony.local "sed -i '' -e '1s/.*/'$now'/' ~/Desktop/repos/_lastupdated.txt; bash backitup"
 fi
+
+rsync -avu --progress $delete ~/Desktop/work ftseng@pony.local:~/Desktop/repos
+rsync -avu --progress $delete ~/Desktop/projects ftseng@pony.local:~/Desktop/repos
+rsync -avu --progress $delete ~/Desktop/STUFF ftseng@pony.local:~/Desktop/repos
+rsync -avu --progress $delete ~/Desktop/graphics ftseng@pony.local:~/Desktop/repos
+rsync -avu --progress $delete ~/Desktop/informations ftseng@pony.local:~/Desktop/repos
+
+echo "Pushing backups to outerspace HDD..."
+echo "Please provide password for ftseng@pony.local"
+now=$(date +"%m_%d_%Y" | tr -d "\n")
+ssh ftseng@pony.local "sed -i '' -e '1s/.*/'$now'/' ~/Desktop/repos/_lastupdated.txt; bash backitup $delete"
