@@ -5,7 +5,7 @@
 
 
 delete=""
-if [[ $1 == "delete" ]]
+if [[ $1 == "--delete" ]]
 then
 	echo "Are you sure you want to rsync with the delete flag? y/n"
 	read a
