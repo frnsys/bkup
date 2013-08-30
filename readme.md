@@ -52,13 +52,15 @@ Backs up the local machine's `Desktop` directories to the
 remote machine's `repos` directory. Then it calls the `backitup.pony` on
 the remote machine (see below).
 
+Takes an optional `delete` argument which will delete files no longer on
+the local machine (i.e. a destructive sync).
+
 ---
 
 `backitup.pony`
 
-Backs up the remote machine to the `outerspace` ext
-HDD. This includes the remote machine's `tv` directory, but does NOT
-include its `backup` directory.
+Backs up the remote machine's `repos`, `archives`, and `tv` to the `outerspace` ext
+HDD. This does NOT include its `backup` directory.
 
 Takes an optional `delete` argument which will delete files no longer on
 the local machine (i.e. a destructive sync).
@@ -76,6 +78,9 @@ is run) machine to an auto-detected external HDD.
 
 The valid names of volumes are specified in the script.
 
+Takes an optional `delete` argument which will delete files no longer on
+the local machine (i.e. a destructive sync).
+
 ```bash
 $ sh backitup.mini [delete]
 ```
@@ -88,6 +93,9 @@ The same as `backitup`, except it additionally backs
 up the local machine's `Downloads` as well as it's SSH keys. These
 additional files are sent to the remote machines `backup` directory.
 
+Takes an optional `delete` argument which will delete files no longer on
+the local machine (i.e. a destructive sync).
+
 ```bash
 $ sh fullbackitup [delete]
 ```
@@ -96,7 +104,7 @@ $ sh fullbackitup [delete]
 
 `sendvids`
 This will send any files in the local machine's
-`Downloads/mytv` directory to the remote machine's `tv` directory.
+`~/Downloads/mytv` directory to the remote machine's `tv` directory.
 
 Does not support a delete option. This is meant mainly for dumping
 videos into the remote machine's `tv` directory, not keeping the two
