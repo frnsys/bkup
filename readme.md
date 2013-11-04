@@ -99,18 +99,3 @@ the local machine (i.e. a destructive sync).
 ```bash
 $ sh fullbackitup [delete]
 ```
-
----
-
-`sendvids`
-This will send any files in the local machine's
-`~/Downloads/mytv` directory to the remote machine's `tv` directory.
-
-Does not support a delete option. This is meant mainly for dumping
-videos into the remote machine's `tv` directory, not keeping the two
-directories in sync.
-
-```bash
-$ sh sendvids
-```
-
