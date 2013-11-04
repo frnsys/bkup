@@ -35,4 +35,5 @@ rm -rf ~/ssh
 echo "Pushing backups to outerspace HDD..."
 echo "Please provide password for ftseng@pony.local"
 now=$(date +"%m_%d_%Y" | tr -d "\n")
-ssh ftseng@pony.local "sed -i '' -e '1s/.*/'$now'/' ~/Desktop/repos/_lastupdated.txt; bash backitup $delete"
+ssh ftseng@pony.local "sed -i '' -e '1s/.*/'$now'/'
+~/Desktop/repos/_lastupdated.txt; bash backitup.mini $delete"

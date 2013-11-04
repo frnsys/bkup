@@ -43,35 +43,18 @@ locations. There is a primary one, known in these scripts as `outerspace`.
 
 
 ## The scripts
-
 There are a few scripts, each with a different functionality:
 
 `backitup`
-
-Backs up the local machine's `Desktop` directories to the
-remote machine's `repos` directory. Then it calls the `backitup.pony` on
-the remote machine (see below).
+`local => remote => externals`
 
 Takes an optional `delete` argument which will delete files no longer on
 the local machine (i.e. a destructive sync).
-
----
-
-`backitup.pony`
-
-Backs up the remote machine's `repos`, `archives`, and `tv` to the `outerspace` ext
-HDD. This does NOT include its `backup` directory.
-
-Takes an optional `delete` argument which will delete files no longer on
-the local machine (i.e. a destructive sync).
-
-```bash
-$ sh backitup [delete]
-```
 
 ---
 
 `backitup.mini`
+`local => externals`
 
 Backs up from the local (or remote, depends where it
 is run) machine to an auto-detected external HDD.
@@ -97,5 +80,5 @@ Takes an optional `delete` argument which will delete files no longer on
 the local machine (i.e. a destructive sync).
 
 ```bash
-$ sh fullbackitup [delete]
+$ sh backitup.full [delete]
 ```

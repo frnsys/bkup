@@ -16,17 +16,19 @@ then
 fi
 
 # Back up to other mounted known drives.
-for NAME in pony THX1189 Dump
+for NAME in pony THX1189 Dump outerspace
 do
     if [ `ls -1 /Volumes/ | grep $NAME` ]; then
         echo -e "\nDrive $NAME was found, backing up to it..."
-        rsync -avu --progress $delete ~/Desktop/repos /Volumes/$NAME
-        rsync -avu --progress $delete ~/Desktop/archives /Volumes/$NAME
+        rsync -avu --progress $delete ~/Desktop/repos /Volumes/$NAME/francis
+        rsync -avu --progress $delete ~/Desktop/archives /Volumes/$NAME/francis
 
         # Only certain drives have `tv` backed up to it.
         # Drive names here are space-delimited.
+        # This does not delete files;
+        # you will have to manually clean them up.
         if [[ "pony Dump" == *"$NAME"* ]]; then
-            rsync -avu --progress $delete ~/Desktop/tv /Volumes/$NAME
+            rsync -avu --progress ~/Desktop/tv /Volumes/$NAME/francis
         fi
     fi
 done

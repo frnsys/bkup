@@ -21,7 +21,7 @@ rsync -avu --progress $delete ~/Desktop/STUFF ftseng@pony.local:~/Desktop/repos
 rsync -avu --progress $delete ~/Desktop/graphics ftseng@pony.local:~/Desktop/repos
 rsync -avu --progress $delete ~/Desktop/informations ftseng@pony.local:~/Desktop/repos
 
-echo "Pushing backups to outerspace HDD..."
+echo "Pushing backups to external HDDs..."
 echo "Please provide password for ftseng@pony.local"
 now=$(date +"%m_%d_%Y" | tr -d "\n")
-ssh ftseng@pony.local "sed -i '' -e '1s/.*/'$now'/' ~/Desktop/repos/_lastupdated.txt; bash backitup $delete"
+ssh ftseng@pony.local "sed -i '' -e '1s/.*/'$now'/' ~/Desktop/repos/_lastupdated.txt; bash backitup.mini $delete"
