@@ -40,9 +40,11 @@ It takes the format:
 }
 ```
 
+#### Mappings
 The `mappings` property maps the folders on the local machine
 (i.e. the machine executing this script) to the backup folders on the remote machine.
 
+#### External HDDs
 The `externals` property maps folders on the *remote* machine to
 external hard drives (specified as paths) attached to the *remote* machine. This assumes OSX
 (i.e. it looks for the specified paths in `/Volumes/`).
@@ -50,6 +52,7 @@ external hard drives (specified as paths) attached to the *remote* machine. This
 The external hard drives *do not* have to be present; the script
 will check if they are there before attempting to sync to them.
 
+#### Safety option
 The optional `never_delete` property is a setting which, if set to
 `true`, will never destructively sync, even if the user specifies it.
 
