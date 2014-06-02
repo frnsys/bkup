@@ -71,7 +71,8 @@ $ python backitup.py <task name> [--delete]
 $ python backitup.py backup --delete
 ```
 
-The optional `--delete` flag will destructively sync.
+The optional `--delete` flag will destructively sync (unless of course
+`never_delete` is set to `true` for the task).
 
 ## Configuration Example
 
