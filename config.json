@@ -23,8 +23,8 @@
                 "~/Desktop/archives/graphics": "~/Desktop/archives"
             },
             "externals": {
-                "~/Desktop/archives": ["THX1189/francis", "pony/francis"],
-                "~/Desktop/tv": ["THX1189/francis", "pony/francis"]
+                "~/Desktop/archives": ["THX1189/francis", "pony/francis", "Dump/francis"],
+                "~/Desktop/tv": ["THX1189/francis", "pony/francis", "Dump/francis"]
             },
             "never_delete": true
         }
