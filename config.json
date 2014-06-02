@@ -1,0 +1,32 @@
+{
+    "backup": {
+        "pony.local": {
+            "user": "ftseng",
+            "mappings": {
+                "~/Desktop/work": "~/Desktop/repos",
+                "~/Desktop/projects": "~/Desktop/repos",
+                "~/Desktop/STUFF": "~/Desktop/repos",
+                "~/Desktop/graphics": "~/Desktop/repos"
+            },
+            "externals": {
+                "~/Desktop/repos": ["pony/francis", "Dump/francis"]
+            }
+        }
+    },
+    "archive": {
+        "pony.local": {
+            "user": "ftseng",
+            "mappings": {
+                "~/Desktop/archives/work": "~/Desktop/archives",
+                "~/Desktop/archives/projects": "~/Desktop/archives",
+                "~/Desktop/archives/STUFF": "~/Desktop/archives",
+                "~/Desktop/archives/graphics": "~/Desktop/archives"
+            },
+            "externals": {
+                "~/Desktop/archives": ["THX1189/francis", "pony/francis"],
+                "~/Desktop/tv": ["THX1189/francis", "pony/francis"]
+            },
+            "never_delete": true
+        }
+    }
+}

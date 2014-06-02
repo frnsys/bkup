@@ -1,85 +1,95 @@
 backitup
 ========
 
-A collection of my back up (rsync) scripts.
+A super cool back up script.
+
+It's tailored to my backup setup, which involves one remote machine with a few attached external HDDs.
 
 ## Setup
+You should have your SSH keys on all remote machines you will be
+accessing.
 
-### Main (local) machine
-My home directory (`~`) structure looks something like this:
-```
-├── Desktop
-│   ├── STUFF
-│   ├── graphics
-│   ├── informations
-│   ├── projects
-│   └── work
-```
-
-(there are of course other directories but these are the important ones)
-
-
-### Remote machine
-There is a remote machine (in these scripts it is named `pony.local`)
-where backups go to.
-
-The remote machine has a home directory structure like:
-```
-├── Desktop
-│   ├── backup
-│   ├── repos
-│   ├── archives
-│   └── tv
-```
-
-The `archives` and `tv` folders have stuff manually added to them.
-They are then non-destructively backed up to external HDDs (that is,
-the deletion of files are not synced).
-
-### External HDDs
-There is also a collection of hard drives that also serve as backup
-locations. There is a primary one, known in these scripts as `outerspace`.
-
----
-
-## The scripts
-There are a few scripts, each with a different functionality:
-
-`backitup`
-`local => remote => externals`
-
-Takes an optional `delete` argument which will delete files no longer on
-the local machine (i.e. a destructive sync).
+For reference, you can do this like so:
 
 ```bash
-$ sh backitup [--delete]
+$ ssh-copy-id <user>@<host>
+
+# Example:
+$ ssh-copy-id ftseng@pony.local
 ```
----
 
-`backitup.mini`
-`local => externals`
+## Configuration
+Setup your backup configuration in `config.json`.
 
-Backs up to auto-detected specified external HDDs.
-The valid names of volumes are specified in the script.
+It takes the format:
 
-Takes an optional `delete` argument which will delete files no longer on
-the local machine (i.e. a destructive sync).
+```json
+{
+    "<task name>": {
+        "<remote hostname>": {
+            "user": "<remote user>",
+            "mappings": {
+                "<local path>": "<remote path>"
+            },
+            "externals": {
+                "<remote path>": ["<ext hdd path>"]
+            },
+            "never_delete": false
+        }
+    }
+}
+```
+
+The `mappings` property maps the folders on the local machine
+(i.e. the machine executing this script) to the backup folders on the remote machine.
+
+The `externals` property maps folders on the *remote* machine to
+external hard drives (specified as paths) attached to the *remote* machine. This assumes OSX
+(i.e. it looks for the specified paths in `/Volumes/`).
+
+The external hard drives *do not* have to be present; the script
+will check if they are there before attempting to sync to them.
+
+The optional `never_delete` property is a setting which, if set to
+`true`, will never destructively sync, even if the user specifies it.
+
+This is useful, for instance, when you want to have an archiving task
+which syncs local folders to the remote host but does not propagate
+deletions. That way, you can delete files in the local folder
+without them being deleted in the remote folder.
+
+Example:
+
+```json
+{
+    "backup": {
+        "pony.local": {
+            "user": "ftseng",
+            "mappings": {
+                "~/Desktop/special_sauce": "~/Desktop/backups"
+            },
+            "externals": {
+                "~/Desktop/backups": ["superdrive/foobar"]
+            }
+        }
+    }
+}
+```
+
+This will sync the local `~/Desktop/special_sauce` folder to the
+`~/Desktop/backups` folder on the remote host `pony.local`. When that
+syncing is complete, it will sync the remote folder `~/Desktop/backups`
+to the remote external hard drive at `/Volumes/superdrive` to its
+`foobar` folder.
+
+## Usage
+To use, simply do:
 
 ```bash
-$ sh backitup.mini [--delete]
+$ python backitup.py <task name> [--delete]
+
+# Example
+$ python backitup.py backup --delete
 ```
 
----
-
-`backitup.full`
-
-The same as `backitup`, except it additionally backs
-up the local machine's `Downloads` as well as it's SSH keys. These
-additional files are sent to the remote machines `backup` directory.
-
-Takes an optional `delete` argument which will delete files no longer on
-the local machine (i.e. a destructive sync).
-
-```bash
-$ sh backitup.full [--delete]
-```
+The optional `--delete` flag will destructively sync.
