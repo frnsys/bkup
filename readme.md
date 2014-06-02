@@ -58,7 +58,19 @@ which syncs local folders to the remote host but does not propagate
 deletions. That way, you can delete files in the local folder
 without them being deleted in the remote folder.
 
-Example:
+## Usage
+To use, simply do:
+
+```bash
+$ python backitup.py <task name> [--delete]
+
+# Example
+$ python backitup.py backup --delete
+```
+
+The optional `--delete` flag will destructively sync.
+
+## Configuration Example
 
 ```json
 {
@@ -81,15 +93,3 @@ This will sync the local `~/Desktop/special_sauce` folder to the
 syncing is complete, it will sync the remote folder `~/Desktop/backups`
 to the remote external hard drive at `/Volumes/superdrive` to its
 `foobar` folder.
-
-## Usage
-To use, simply do:
-
-```bash
-$ python backitup.py <task name> [--delete]
-
-# Example
-$ python backitup.py backup --delete
-```
-
-The optional `--delete` flag will destructively sync.
