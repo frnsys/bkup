@@ -11,7 +11,8 @@
             "externals": {
                 "~/Desktop/repos": ["pony/francis", "Dump/francis"]
             }
-        }
+        },
+        "subtasks": ["evernote"]
     },
     "archive": {
         "pony.local": {

@@ -35,7 +35,8 @@ It takes the format:
                 "<remote path>": ["<ext hdd path>"]
             },
             "never_delete": false
-        }
+        },
+        "subtasks": ["<subtask module name>"]
     }
 }
 ```
@@ -60,6 +61,15 @@ This is useful, for instance, when you want to have an archiving task
 which syncs local folders to the remote host but does not propagate
 deletions. That way, you can delete files in the local folder
 without them being deleted in the remote folder.
+
+#### Subtasks
+You can add modules to the `subtasks/` directory which can then be
+specified as subtasks to be run at the start of the task. Refer to them
+by the name of the module.
+
+The only requirement is that the subtask module has a `run` method which
+does whatever you want it to do.
+
 
 ## Usage
 To use, simply do:
@@ -87,7 +97,8 @@ The optional `--delete` flag will destructively sync (unless of course
             "externals": {
                 "~/Desktop/backups": ["superdrive/foobar"]
             }
-        }
+        },
+        "subtasks": ["evernote"]
     }
 }
 ```

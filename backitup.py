@@ -5,6 +5,8 @@ import pipes
 import json
 import os
 
+import subtasks
+
 def main():
     args = parse_args()
 
@@ -15,6 +17,11 @@ def main():
     rsync = ['rsync', '-avu', '--progress']
     if args.delete and not task.get('never_delete', False):
         rsync.append('--delete')
+
+    # Run subtasks...
+    for subtask in task.get('subtasks', []):
+        subtasks.namespace[subtask].run()
+    task.pop('subtasks', None)
 
     # For each host in the task...
     for host, settings in task.items():
