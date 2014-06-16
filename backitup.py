@@ -19,12 +19,19 @@ def main():
         rsync.append('--delete')
 
     # Run subtasks...
-    for subtask in task.get('subtasks', []):
-        subtasks.namespace[subtask].run()
+    for subtask, params in task.get('subtasks', {}).items():
+        print('Running subtask `{0}`...'.format(subtask))
+        subtasks.namespace[subtask].run(*params)
     task.pop('subtasks', None)
 
     # For each host in the task...
     for host, settings in task.items():
+
+        # Skip host if it is inaccessible.
+        if not ping_host(host):
+            print('Host {0} is down, skipping...'.format(host))
+            continue
+
         user = settings['user']
         remote = '{0}@{1}'.format(user, host)
 
@@ -68,6 +75,19 @@ def parse_args():
     parser.add_argument('task', type=str, help='the particular backup task to run.')
     parser.add_argument('--delete', action='store_true', help='whether or not to sync deleted files.')
     return parser.parse_args()
+
+def ping_host(host):
+    """
+    Check to see if a host
+    is available.
+    """
+    try:
+        subprocess.check_call(['ping', '-c', '1', host],
+              stdout=subprocess.PIPE,
+              stderr=subprocess.PIPE)
+        return True
+    except subprocess.CalledProcessError:
+        return False
 
 def load_task(task):
     """

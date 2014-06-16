@@ -12,7 +12,10 @@
                 "~/Desktop/repos": ["pony/francis", "Dump/francis"]
             }
         },
-        "subtasks": ["evernote"]
+        "subtasks": {
+            "evernote": [],
+            "adium": ["~/Desktop/STUFF/backups/"]
+        }
     },
     "archive": {
         "pony.local": {
