@@ -24,7 +24,8 @@
                 "~/Desktop/archives/work": "~/Desktop/archives",
                 "~/Desktop/archives/projects": "~/Desktop/archives",
                 "~/Desktop/archives/STUFF": "~/Desktop/archives",
-                "~/Desktop/archives/graphics": "~/Desktop/archives"
+                "~/Desktop/archives/graphics": "~/Desktop/archives",
+                "~/Desktop/archives/tv": "~/Desktop"
             },
             "externals": {
                 "~/Desktop/archives": ["THX1189/francis", "pony/francis", "Dump/francis"],
