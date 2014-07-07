@@ -33,5 +33,24 @@
             },
             "never_delete": true
         }
+    },
+    "snapshot": {
+        "pony.local": {
+            "user": "ftseng",
+            "mappings": {
+                "~/Desktop/archives/work": "~/Desktop/archives",
+                "~/Desktop/archives/projects": "~/Desktop/archives",
+                "~/Desktop/archives/STUFF": "~/Desktop/archives",
+                "~/Desktop/archives/graphics": "~/Desktop/archives",
+                "~/Desktop/archives/tv": "~/Desktop",
+                "~/Downloads": "~/Desktop",
+                "~/.ssh": "~/Desktop"
+            },
+            "externals": {
+                "~/Desktop/archives": ["THX1189/francis", "pony/francis", "Dump/francis"],
+                "~/Desktop/tv": ["THX1189/francis", "pony/francis", "Dump/francis"]
+            },
+            "never_delete": true
+        }
     }
 }
