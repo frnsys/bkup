@@ -1,3 +1,8 @@
+"""
+This script exports Adium settings,
+logs, and xtras.
+"""
+
 import os
 import shutil
 

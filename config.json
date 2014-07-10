@@ -43,14 +43,24 @@
                 "~/Desktop/archives/STUFF": "~/Desktop/archives",
                 "~/Desktop/archives/graphics": "~/Desktop/archives",
                 "~/Desktop/archives/tv": "~/Desktop",
+                "~/Desktop/work": "~/Desktop/repos",
+                "~/Desktop/projects": "~/Desktop/repos",
+                "~/Desktop/STUFF": "~/Desktop/repos",
+                "~/Desktop/graphics": "~/Desktop/repos",
                 "~/Downloads": "~/Desktop",
-                "~/.ssh": "~/Desktop"
+                "/tmp/backitup_snapshot": "~/Desktop"
             },
             "externals": {
                 "~/Desktop/archives": ["THX1189/francis", "pony/francis", "Dump/francis"],
-                "~/Desktop/tv": ["THX1189/francis", "pony/francis", "Dump/francis"]
+                "~/Desktop/tv": ["THX1189/francis", "pony/francis", "Dump/francis"],
+                "~/Desktop/repos": ["pony/francis", "Dump/francis"]
             },
             "never_delete": true
+        },
+        "subtasks": {
+            "evernote": [],
+            "adium": ["~/Desktop/STUFF/backups/adium"],
+            "snapshot": []
         }
     }
 }

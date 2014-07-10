@@ -1,3 +1,8 @@
+"""
+This script exports Evernote notes
+to ~/Desktop/STUFF/backups/.
+"""
+
 import subprocess
 
 def run():
