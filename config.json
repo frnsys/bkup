@@ -12,6 +12,15 @@
                 "~/Desktop/repos": ["pony/francis", "Dump/francis"]
             }
         },
+        "raspberrypi.local": {
+            "user": "ftseng",
+            "mappings": {
+                "~/Desktop/work": "/mnt/outerspace/francis/repos",
+                "~/Desktop/projects": "/mnt/outerspace/francis/repos",
+                "~/Desktop/STUFF": "/mnt/outerspace/francis/repos",
+                "~/Desktop/graphics": "/mnt/outerspace/francis/repos"
+            }
+        },
         "subtasks": {
             "evernote": [],
             "adium": ["~/Desktop/STUFF/backups/adium"]
@@ -30,6 +39,17 @@
             "externals": {
                 "~/Desktop/archives": ["THX1189/francis", "pony/francis", "Dump/francis"],
                 "~/Desktop/tv": ["THX1189/francis", "pony/francis", "Dump/francis"]
+            },
+            "never_delete": true
+        },
+        "raspberrypi.local": {
+            "user": "ftseng",
+            "mappings": {
+                "~/Desktop/archives/work": "/mnt/outerspace/francis/archives",
+                "~/Desktop/archives/projects": "/mnt/outerspace/francis/archives",
+                "~/Desktop/archives/STUFF": "/mnt/outerspace/francis/archives",
+                "~/Desktop/archives/graphics": "/mnt/outerspace/francis/archives",
+                "~/Desktop/archives/tv": "/mnt/outerspace/francis/tv"
             },
             "never_delete": true
         }
