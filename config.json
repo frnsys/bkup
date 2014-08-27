@@ -9,16 +9,16 @@
                 "~/Desktop/graphics": "~/Desktop/repos"
             },
             "externals": {
-                "~/Desktop/repos": ["pony/francis", "Dump/francis"]
+                "~/Desktop/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
             }
         },
         "raspberrypi.local": {
             "user": "ftseng",
             "mappings": {
-                "~/Desktop/work": "/mnt/outerspace/francis/repos",
-                "~/Desktop/projects": "/mnt/outerspace/francis/repos",
-                "~/Desktop/STUFF": "/mnt/outerspace/francis/repos",
-                "~/Desktop/graphics": "/mnt/outerspace/francis/repos"
+                "~/Desktop/work": "/mnt/crust/francis/repos",
+                "~/Desktop/projects": "/mnt/crust/francis/repos",
+                "~/Desktop/STUFF": "/mnt/crust/francis/repos",
+                "~/Desktop/graphics": "/mnt/crust/francis/repos"
             }
         },
         "subtasks": {
@@ -37,19 +37,19 @@
                 "~/Desktop/archives/tv": "~/Desktop"
             },
             "externals": {
-                "~/Desktop/archives": ["THX1189/francis", "pony/francis", "Dump/francis"],
-                "~/Desktop/tv": ["THX1189/francis", "pony/francis", "Dump/francis"]
+                "~/Desktop/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
+                "~/Desktop/tv": ["pony/francis", "Dump/francis", "outerspace/francis"]
             },
             "never_delete": true
         },
         "raspberrypi.local": {
             "user": "ftseng",
             "mappings": {
-                "~/Desktop/archives/work": "/mnt/outerspace/francis/archives",
-                "~/Desktop/archives/projects": "/mnt/outerspace/francis/archives",
-                "~/Desktop/archives/STUFF": "/mnt/outerspace/francis/archives",
-                "~/Desktop/archives/graphics": "/mnt/outerspace/francis/archives",
-                "~/Desktop/archives/tv": "/mnt/outerspace/francis/tv"
+                "~/Desktop/archives/work": "/mnt/crust/francis/archives",
+                "~/Desktop/archives/projects": "/mnt/crust/francis/archives",
+                "~/Desktop/archives/STUFF": "/mnt/crust/francis/archives",
+                "~/Desktop/archives/graphics": "/mnt/crust/francis/archives",
+                "~/Desktop/archives/tv": "/mnt/crust/francis/tv"
             },
             "never_delete": true
         }
@@ -71,9 +71,9 @@
                 "/tmp/backitup_snapshot": "~/Desktop"
             },
             "externals": {
-                "~/Desktop/archives": ["THX1189/francis", "pony/francis", "Dump/francis"],
-                "~/Desktop/tv": ["THX1189/francis", "pony/francis", "Dump/francis"],
-                "~/Desktop/repos": ["pony/francis", "Dump/francis"]
+                "~/Desktop/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
+                "~/Desktop/tv": ["pony/francis", "Dump/francis", "outerspace/francis"],
+                "~/Desktop/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
             },
             "never_delete": true
         },
