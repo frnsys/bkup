@@ -6,7 +6,8 @@
                 "~/Desktop/work": "~/Desktop/repos",
                 "~/Desktop/projects": "~/Desktop/repos",
                 "~/Desktop/STUFF": "~/Desktop/repos",
-                "~/Desktop/graphics": "~/Desktop/repos"
+                "~/Desktop/graphics": "~/Desktop/repos",
+                "~/nomadic": "~/Desktop/repos"
             },
             "externals": {
                 "~/Desktop/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
@@ -18,7 +19,8 @@
                 "~/Desktop/work": "/mnt/crust/francis/repos",
                 "~/Desktop/projects": "/mnt/crust/francis/repos",
                 "~/Desktop/STUFF": "/mnt/crust/francis/repos",
-                "~/Desktop/graphics": "/mnt/crust/francis/repos"
+                "~/Desktop/graphics": "/mnt/crust/francis/repos",
+                "~/nomadic": "/mnt/crust/francis/repos"
             }
         },
         "subtasks": {
@@ -67,6 +69,7 @@
                 "~/Desktop/projects": "~/Desktop/repos",
                 "~/Desktop/STUFF": "~/Desktop/repos",
                 "~/Desktop/graphics": "~/Desktop/repos",
+                "~/nomadic": "~/Desktop/repos",
                 "~/Downloads": "~/Desktop",
                 "/tmp/backitup_snapshot": "~/Desktop"
             },
