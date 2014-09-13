@@ -24,7 +24,6 @@
             }
         },
         "subtasks": {
-            "evernote": [],
             "adium": ["~/Desktop/STUFF/backups/adium"]
         }
     },
@@ -81,7 +80,6 @@
             "never_delete": true
         },
         "subtasks": {
-            "evernote": [],
             "adium": ["~/Desktop/STUFF/backups/adium"],
             "snapshot": []
         }
