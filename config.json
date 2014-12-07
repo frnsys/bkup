@@ -7,7 +7,7 @@
                 "~/Desktop/projects": "~/Desktop/repos",
                 "~/Desktop/STUFF": "~/Desktop/repos",
                 "~/Desktop/graphics": "~/Desktop/repos",
-                "~/nomadic": "~/Desktop/repos"
+                "~/notes": "~/Desktop/repos"
             },
             "externals": {
                 "~/Desktop/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
@@ -20,11 +20,11 @@
                 "~/Desktop/projects": "/mnt/crust/francis/repos",
                 "~/Desktop/STUFF": "/mnt/crust/francis/repos",
                 "~/Desktop/graphics": "/mnt/crust/francis/repos",
-                "~/nomadic": "/mnt/crust/francis/repos"
+                "~/notes": "/mnt/crust/francis/repos"
             }
         },
         "subtasks": {
-            "adium": ["~/Desktop/STUFF/backups/adium"]
+            "blog": []
         }
     },
     "archive": {
@@ -53,6 +53,9 @@
                 "~/Desktop/archives/tv": "/mnt/crust/francis/tv"
             },
             "never_delete": true
+        },
+        "subtasks": {
+            "blog": []
         }
     },
     "snapshot": {
@@ -68,7 +71,7 @@
                 "~/Desktop/projects": "~/Desktop/repos",
                 "~/Desktop/STUFF": "~/Desktop/repos",
                 "~/Desktop/graphics": "~/Desktop/repos",
-                "~/nomadic": "~/Desktop/repos",
+                "~/notes": "~/Desktop/repos",
                 "~/Downloads": "~/Desktop",
                 "/tmp/backitup_snapshot": "~/Desktop"
             },
