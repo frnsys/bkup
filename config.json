@@ -23,9 +23,6 @@
                 "~/notes": "/mnt/crust/francis/repos"
             }
         },
-        "subtasks": {
-            "blog": []
-        }
     },
     "archive": {
         "pony.local": {
@@ -54,9 +51,6 @@
             },
             "never_delete": true
         },
-        "subtasks": {
-            "blog": []
-        }
     },
     "snapshot": {
         "pony.local": {
