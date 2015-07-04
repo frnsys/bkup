@@ -3,10 +3,10 @@
         "pony.local": {
             "user": "ftseng",
             "mappings": {
-                "~/Desktop/work": "~/Desktop/repos",
-                "~/Desktop/projects": "~/Desktop/repos",
-                "~/Desktop/STUFF": "~/Desktop/repos",
-                "~/Desktop/graphics": "~/Desktop/repos",
+                "~/work": "~/Desktop/repos",
+                "~/projects": "~/Desktop/repos",
+                "~/STUFF": "~/Desktop/repos",
+                "~/graphics": "~/Desktop/repos",
                 "~/notes": "~/Desktop/repos"
             },
             "externals": {
@@ -16,68 +16,68 @@
         "raspberrypi.local": {
             "user": "ftseng",
             "mappings": {
-                "~/Desktop/work": "/mnt/crust/francis/repos",
-                "~/Desktop/projects": "/mnt/crust/francis/repos",
-                "~/Desktop/STUFF": "/mnt/crust/francis/repos",
-                "~/Desktop/graphics": "/mnt/crust/francis/repos",
+                "~/work": "/mnt/crust/francis/repos",
+                "~/projects": "/mnt/crust/francis/repos",
+                "~/STUFF": "/mnt/crust/francis/repos",
+                "~/graphics": "/mnt/crust/francis/repos",
                 "~/notes": "/mnt/crust/francis/repos"
             }
-        },
+        }
     },
     "archive": {
         "pony.local": {
             "user": "ftseng",
             "mappings": {
-                "~/Desktop/archives/work": "~/Desktop/archives",
-                "~/Desktop/archives/projects": "~/Desktop/archives",
-                "~/Desktop/archives/STUFF": "~/Desktop/archives",
-                "~/Desktop/archives/graphics": "~/Desktop/archives",
-                "~/Desktop/archives/tv": "~/Desktop"
+                "~/archives/work": "~/Desktop/archives",
+                "~/archives/projects": "~/Desktop/archives",
+                "~/archives/STUFF": "~/Desktop/archives",
+                "~/archives/graphics": "~/Desktop/archives",
+                "~/archives/media": "~/Desktop"
             },
             "externals": {
                 "~/Desktop/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
-                "~/Desktop/tv": ["pony/francis", "Dump/francis", "outerspace/francis"]
+                "~/Desktop/media": ["pony/francis", "Dump/francis", "outerspace/francis"]
             },
             "never_delete": true
         },
         "raspberrypi.local": {
             "user": "ftseng",
             "mappings": {
-                "~/Desktop/archives/work": "/mnt/crust/francis/archives",
-                "~/Desktop/archives/projects": "/mnt/crust/francis/archives",
-                "~/Desktop/archives/STUFF": "/mnt/crust/francis/archives",
-                "~/Desktop/archives/graphics": "/mnt/crust/francis/archives",
-                "~/Desktop/archives/tv": "/mnt/crust/francis/tv"
+                "~/archives/work": "/mnt/crust/francis/archives",
+                "~/archives/projects": "/mnt/crust/francis/archives",
+                "~/archives/STUFF": "/mnt/crust/francis/archives",
+                "~/archives/graphics": "/mnt/crust/francis/archives",
+                "~/archives/media": "/mnt/crust/francis/media"
             },
             "never_delete": true
-        },
+        }
     },
     "snapshot": {
         "pony.local": {
             "user": "ftseng",
             "mappings": {
-                "~/Desktop/archives/work": "~/Desktop/archives",
-                "~/Desktop/archives/projects": "~/Desktop/archives",
-                "~/Desktop/archives/STUFF": "~/Desktop/archives",
-                "~/Desktop/archives/graphics": "~/Desktop/archives",
-                "~/Desktop/archives/tv": "~/Desktop",
-                "~/Desktop/work": "~/Desktop/repos",
-                "~/Desktop/projects": "~/Desktop/repos",
-                "~/Desktop/STUFF": "~/Desktop/repos",
-                "~/Desktop/graphics": "~/Desktop/repos",
+                "~/archives/work": "~/Desktop/archives",
+                "~/archives/projects": "~/Desktop/archives",
+                "~/archives/STUFF": "~/Desktop/archives",
+                "~/archives/graphics": "~/Desktop/archives",
+                "~/archives/media": "~/Desktop",
+                "~/work": "~/Desktop/repos",
+                "~/projects": "~/Desktop/repos",
+                "~/STUFF": "~/Desktop/repos",
+                "~/graphics": "~/Desktop/repos",
                 "~/notes": "~/Desktop/repos",
                 "~/Downloads": "~/Desktop",
                 "/tmp/backitup_snapshot": "~/Desktop"
             },
             "externals": {
                 "~/Desktop/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
-                "~/Desktop/tv": ["pony/francis", "Dump/francis", "outerspace/francis"],
+                "~/Desktop/media": ["pony/francis", "Dump/francis", "outerspace/francis"],
                 "~/Desktop/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
             },
             "never_delete": true
         },
         "subtasks": {
-            "adium": ["~/Desktop/STUFF/backups/adium"],
+            "adium": ["~/STUFF/backups/adium"],
             "snapshot": []
         }
     }

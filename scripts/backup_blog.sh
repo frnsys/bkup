@@ -3,7 +3,7 @@
 
 USER=theneonzoo_spaceandtimes
 HOST=ssh.phx.nearlyfreespeech.net
-BACKUP_DIR=~/Desktop/STUFF/backups
+BACKUP_DIR=~/STUFF/backups
 mkdir -p $BACKUP_DIR/spaceandtimes/uploads
 
 PASS=$1
