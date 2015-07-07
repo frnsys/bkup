@@ -14,7 +14,7 @@ def main():
     if not task:
         return
 
-    rsync = ['rsync', '-avu', '--progress']
+    rsync = ['rsync', '-avuhz', '--progress', '--checksum']
     if args.delete and not task.get('never_delete', False):
         rsync.append('--delete')
 
