@@ -1,17 +1,17 @@
 {
     "backup": {
-        "pony.local": {
+        "svalbard": {
             "user": "ftseng",
             "mappings": {
-                "~/work": "~/Desktop/repos",
-                "~/projects": "~/Desktop/repos",
-                "~/STUFF": "~/Desktop/repos",
-                "~/graphics": "~/Desktop/repos",
-                "~/notes": "~/Desktop/repos",
-                "~/data": "~/Desktop/repos"
+                "~/work": "/mnt/databank/repos",
+                "~/projects": "/mnt/databank/repos",
+                "~/STUFF": "/mnt/databank/repos",
+                "~/graphics": "/mnt/databank/repos",
+                "~/notes": "/mnt/databank/repos",
+                "~/data": "/mnt/databank/repos"
             },
             "externals": {
-                "~/Desktop/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
+                "/mnt/databank/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
             }
         },
         "raspberrypi": {
@@ -27,14 +27,14 @@
         }
     },
     "archive": {
-        "pony.local": {
+        "svalbard": {
             "user": "ftseng",
             "mappings": {
-                "~/archives/work": "~/Desktop/archives",
-                "~/archives/projects": "~/Desktop/archives",
-                "~/archives/STUFF": "~/Desktop/archives",
-                "~/archives/graphics": "~/Desktop/archives",
-                "~/archives/media": "~/Desktop"
+                "~/archives/work": "/mnt/databank/archives",
+                "~/archives/projects": "/mnt/databank/archives",
+                "~/archives/STUFF": "/mnt/databank/archives",
+                "~/archives/graphics": "/mnt/databank/archives",
+                "~/archives/media": "/mnt/databank/media"
             },
             "externals": {
                 "~/Desktop/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
@@ -55,32 +55,31 @@
         }
     },
     "snapshot": {
-        "pony.local": {
+        "svalbard": {
             "user": "ftseng",
             "mappings": {
-                "~/archives/work": "~/Desktop/archives",
-                "~/archives/projects": "~/Desktop/archives",
-                "~/archives/STUFF": "~/Desktop/archives",
-                "~/archives/graphics": "~/Desktop/archives",
-                "~/archives/media": "~/Desktop",
-                "~/work": "~/Desktop/repos",
-                "~/projects": "~/Desktop/repos",
-                "~/STUFF": "~/Desktop/repos",
-                "~/graphics": "~/Desktop/repos",
-                "~/notes": "~/Desktop/repos",
-                "~/data": "~/Desktop/repos",
-                "~/Downloads": "~/Desktop",
-                "/tmp/backitup_snapshot": "~/Desktop"
+                "~/archives/work": "/mnt/databank/archives",
+                "~/archives/projects": "/mnt/databank/archives",
+                "~/archives/STUFF": "/mnt/databank/archives",
+                "~/archives/graphics": "/mnt/databank/archives",
+                "~/archives/media": "/mnt/databank",
+                "~/work": "/mnt/databank/repos",
+                "~/projects": "/mnt/databank/repos",
+                "~/STUFF": "/mnt/databank/repos",
+                "~/graphics": "/mnt/databank/repos",
+                "~/notes": "/mnt/databank/repos",
+                "~/data": "/mnt/databank/repos",
+                "~/Downloads": "/mnt/databank",
+                "/tmp/backitup_snapshot": "/mnt/databank"
             },
             "externals": {
-                "~/Desktop/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
-                "~/Desktop/media": ["pony/francis", "Dump/francis", "outerspace/francis"],
-                "~/Desktop/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
+                "/mnt/databank/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
+                "/mnt/databank/media": ["pony/francis", "Dump/francis", "outerspace/francis"],
+                "/mnt/databank/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
             },
             "never_delete": true
         },
         "subtasks": {
-            "adium": ["~/STUFF/backups/adium"],
             "snapshot": []
         }
     }
