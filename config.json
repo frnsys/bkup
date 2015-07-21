@@ -3,15 +3,15 @@
         "svalbard": {
             "user": "ftseng",
             "mappings": {
-                "~/work": "/mnt/databank/repos",
-                "~/projects": "/mnt/databank/repos",
-                "~/STUFF": "/mnt/databank/repos",
-                "~/graphics": "/mnt/databank/repos",
-                "~/notes": "/mnt/databank/repos",
-                "~/data": "/mnt/databank/repos"
+                "~/work": "/mnt/databank/francis/repos",
+                "~/projects": "/mnt/databank/francis/repos",
+                "~/STUFF": "/mnt/databank/francis/repos",
+                "~/graphics": "/mnt/databank/francis/repos",
+                "~/notes": "/mnt/databank/francis/repos",
+                "~/data": "/mnt/databank/francis/repos"
             },
             "externals": {
-                "/mnt/databank/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
+                "/mnt/databank/francis/repos": ["/mnt/outerspace/francis"]
             }
         },
         "raspberrypi": {
@@ -24,21 +24,49 @@
                 "~/notes": "/mnt/crust/francis/repos",
                 "~/data": "/mnt/crust/francis/repos"
             }
+        },
+        "localhost": {
+            "mappings": {
+                "~/work": [
+                    "/Volumes/Dump/francis/repos",
+                    "/Volumes/pony/francis/repos"
+                ],
+                "~/projects": [
+                    "/Volumes/Dump/francis/repos",
+                    "/Volumes/pony/francis/repos"
+                ],
+                "~/STUFF": [
+                    "/Volumes/Dump/francis/repos",
+                    "/Volumes/pony/francis/repos"
+                ],
+                "~/graphics": [
+                    "/Volumes/Dump/francis/repos",
+                    "/Volumes/pony/francis/repos"
+                ],
+                "~/notes": [
+                    "/Volumes/Dump/francis/repos",
+                    "/Volumes/pony/francis/repos"
+                ],
+                "~/data": [
+                    "/Volumes/Dump/francis/repos",
+                    "/Volumes/pony/francis/repos"
+                ]
+            }
         }
     },
     "archive": {
         "svalbard": {
             "user": "ftseng",
             "mappings": {
-                "~/archives/work": "/mnt/databank/archives",
-                "~/archives/projects": "/mnt/databank/archives",
-                "~/archives/STUFF": "/mnt/databank/archives",
-                "~/archives/graphics": "/mnt/databank/archives",
-                "~/archives/media": "/mnt/databank/media"
+                "~/archives/work": "/mnt/databank/francis/archives",
+                "~/archives/projects": "/mnt/databank/francis/archives",
+                "~/archives/STUFF": "/mnt/databank/francis/archives",
+                "~/archives/graphics": "/mnt/databank/francis/archives",
+                "~/archives/media": "/mnt/databank/francis/media"
             },
             "externals": {
-                "~/Desktop/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
-                "~/Desktop/media": ["pony/francis", "Dump/francis", "outerspace/francis"]
+                "/mnt/databank/francis/archives": ["/mnt/outerspace/francis"],
+                "/mnt/databank/francis/media": ["/mnt/outerspace/francis"]
             },
             "never_delete": true
         },
@@ -58,24 +86,24 @@
         "svalbard": {
             "user": "ftseng",
             "mappings": {
-                "~/archives/work": "/mnt/databank/archives",
-                "~/archives/projects": "/mnt/databank/archives",
-                "~/archives/STUFF": "/mnt/databank/archives",
-                "~/archives/graphics": "/mnt/databank/archives",
+                "~/archives/work": "/mnt/databank/francis/archives",
+                "~/archives/projects": "/mnt/databank/francis/archives",
+                "~/archives/STUFF": "/mnt/databank/francis/archives",
+                "~/archives/graphics": "/mnt/databank/francis/archives",
                 "~/archives/media": "/mnt/databank",
-                "~/work": "/mnt/databank/repos",
-                "~/projects": "/mnt/databank/repos",
-                "~/STUFF": "/mnt/databank/repos",
-                "~/graphics": "/mnt/databank/repos",
-                "~/notes": "/mnt/databank/repos",
-                "~/data": "/mnt/databank/repos",
+                "~/work": "/mnt/databank/francis/repos",
+                "~/projects": "/mnt/databank/francis/repos",
+                "~/STUFF": "/mnt/databank/francis/repos",
+                "~/graphics": "/mnt/databank/francis/repos",
+                "~/notes": "/mnt/databank/francis/repos",
+                "~/data": "/mnt/databank/francis/repos",
                 "~/Downloads": "/mnt/databank",
                 "/tmp/backitup_snapshot": "/mnt/databank"
             },
             "externals": {
-                "/mnt/databank/archives": ["pony/francis", "Dump/francis", "outerspace/francis"],
-                "/mnt/databank/media": ["pony/francis", "Dump/francis", "outerspace/francis"],
-                "/mnt/databank/repos": ["pony/francis", "Dump/francis", "outerspace/francis"]
+                "/mnt/databank/francis/archives": ["/mnt/outerspace/francis"],
+                "/mnt/databank/francis/media": ["/mnt/outerspace/francis"],
+                "/mnt/databank/francis/repos": ["/mnt/outerspace/francis"]
             },
             "never_delete": true
         },

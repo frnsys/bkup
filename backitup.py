@@ -14,7 +14,8 @@ def main():
     if not task:
         return
 
-    rsync = ['rsync', '-avuhz', '--progress', '--checksum']
+    #rsync = ['rsync', '-avuhz', '--progress', '--checksum']
+    rsync = ['rsync', '-avuhz', '--progress']
     if args.delete and not task.get('never_delete', False):
         rsync.append('--delete')
 
@@ -27,42 +28,62 @@ def main():
     # For each host in the task...
     for host, settings in task.items():
 
-        # Skip host if it is inaccessible.
-        if not ping_host(host):
-            print('Host {0} is down, skipping...'.format(host))
-            continue
+        if host != 'localhost':
+            # Skip host if it is inaccessible.
+            if not ping_host(host):
+                print('Host {0} is down, skipping...'.format(host))
+                continue
 
-        user = settings['user']
-        remote = '{0}@{1}'.format(user, host)
+            user = settings['user']
+            remote = '{0}@{1}'.format(user, host)
+        else:
+            remote = ''
+
 
         # For each mapping for the host...
-        for src, dest in settings.get('mappings', {}).items():
-            frm = os.path.expanduser(src)
-            to = '{0}:{1}'.format(remote, dest)
+        for src, dests in settings.get('mappings', {}).items():
+            if not isinstance(dests, list):
+                dests = [dests]
 
-            nice_print('Backing up {0} to {1}...'.format(frm, to))
-            run(rsync + [frm, to])
+            for dest in dests:
+                frm = os.path.expanduser(src)
 
-            # Update the last updated file.
-            now = datetime.datetime.now()
-            run(['ssh', remote, 'echo "{0}" > {1}'.format(str(now), os.path.join(dest, '_lastupdated.txt'))])
+                if remote:
+                    to = '{0}:{1}'.format(remote, dest)
+                else:
+                    # Skip path if it does not exist
+                    if not os.path.exists(dest):
+                        print('\nLocal path {0} not found, skipping...'.format(dest))
+                        continue
+                    to = dest
+
+                nice_print('Backing up {0} to {1}...'.format(frm, to))
+                run(rsync + [frm, to])
+
+                # Update the last updated file.
+                now = datetime.datetime.now()
+
+                if remote:
+                    run(['ssh', remote, 'echo "{0}" > {1}'.format(str(now), os.path.join(dest, '_lastupdated.txt'))])
+                else:
+                    with open(os.path.join(dest, '_lastupdated.txt'), 'w') as f:
+                        f.write(str(now))
 
         # Backup to external HDDs attached to the remote machine...
-        for remote_src, ext_hdds in settings.get('externals', {}).items():
-            for ext_hdd in ext_hdds:
-                ext_hdd_path = '/Volumes/{0}'.format(ext_hdd)
+        if remote:
+            for remote_src, ext_hdds in settings.get('externals', {}).items():
+                for ext_hdd_path in ext_hdds:
+                    if remote_path_exists(remote, ext_hdd_path):
+                        nice_print('Drive {0} was found, backing up to it...'.format(ext_hdd_path))
 
-                if remote_path_exists(remote, ext_hdd_path):
-                    nice_print('Drive {0} was found, backing up to it...'.format(ext_hdd))
+                        # Build the remote rsync command.
+                        remote_rsync = '{rsync} {src} {dest}'.format(
+                                rsync=' '.join(rsync),
+                                src=remote_src,
+                                dest=ext_hdd_path
+                        )
 
-                    # Build the remote rsync command.
-                    remote_rsync = '{rsync} {src} {dest}'.format(
-                            rsync=' '.join(rsync),
-                            src=remote_src,
-                            dest=ext_hdd_path
-                    )
-
-                    run(['ssh', remote, remote_rsync])
+                        run(['ssh', remote, remote_rsync])
 
 def parse_args():
     """
