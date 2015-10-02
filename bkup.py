@@ -4,11 +4,14 @@ import yaml
 import click
 import datetime
 import subprocess
+from itertools import combinations
+
+rsync = ['rsync', '-avuhz', '--progress']
 
 
 @click.command()
 @click.argument('task')
-@click.option('--delete', default=False, help='delete remote files not found locally')
+@click.option('--delete', default=False, help='delete remote files not found locally. Ignored for sync tasks')
 def bkup(task, delete):
     with open(os.path.expanduser('~/.bkup'), 'r') as f:
         conf = yaml.load(f)
@@ -18,7 +21,14 @@ def bkup(task, delete):
         return
     task = conf[task]
 
-    rsync = ['rsync', '-avuhz', '--progress']
+    if task.get('sync', False):
+        sync(task)
+    else:
+        push(task, delete)
+
+
+def push(task, delete):
+    """Push (broadcast) from one machine to many others"""
     if delete and not task.get('never_delete', False):
         rsync.append('--delete')
 
@@ -55,6 +65,23 @@ def bkup(task, delete):
                     f.write(str(now))
 
 
+def sync(task):
+    """Sync multiple machines together"""
+    host_targets = [t.split(':') + [t] for t in task['targets']]
+    for (host_a, local_a, target_a), (host_b, local_b, target_b) in combinations(host_targets, 2):
+        rsync_cmd = '"{} {} {}"'.format(' '.join(rsync),
+                                        local_a,
+                                        target_b)
+        cmd = ['ssh', host_a, rsync_cmd]
+        run(cmd)
+
+        rsync_cmd = '"{} {} {}"'.format(' '.join(rsync),
+                                        local_b,
+                                        target_a)
+        cmd = ['ssh', host_b, rsync_cmd]
+        run(cmd)
+
+
 def ping_host(host):
     """Check to see if a host is available"""
     try:
@@ -67,7 +94,6 @@ def ping_host(host):
 
 
 def run(cmd):
-    print(cmd)
     """Run a command and print its output realtime"""
     process = subprocess.Popen(
         cmd,
