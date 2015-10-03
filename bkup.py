@@ -2,6 +2,7 @@ import os
 import re
 import yaml
 import click
+import socket
 import datetime
 import subprocess
 from itertools import combinations
@@ -67,19 +68,32 @@ def push(task, delete):
 
 def sync(task):
     """Sync multiple machines together"""
-    host_targets = [t.split(':') + [t] for t in task['targets']]
-    for (host_a, local_a, target_a), (host_b, local_b, target_b) in combinations(host_targets, 2):
-        rsync_cmd = '"{} {} {}"'.format(' '.join(rsync),
-                                        local_a,
-                                        target_b)
-        cmd = ['ssh', host_a, rsync_cmd]
-        run(cmd)
+    localhost = socket.gethostname()
 
-        rsync_cmd = '"{} {} {}"'.format(' '.join(rsync),
-                                        local_b,
-                                        target_a)
-        cmd = ['ssh', host_b, rsync_cmd]
-        run(cmd)
+    for a, b in combinations(task['targets'], 2):
+        for frm, to in [(a,b),(b,a)]:
+            print('\n\n{} --> {}\n'.format(frm, to))
+
+            user_f, host_f, path_f = frm.replace('@', ':').split(':')
+            user_t, host_t, path_t = to.replace('@', ':').split(':')
+
+            # if the from and target hosts are the same,
+            # the target user@host is redundant, remove it
+            if host_f == host_t:
+                to = path_t
+
+            # if the from host is the localhost,
+            # we can drop the ssh command
+            if host_f == localhost:
+                path_f = os.path.expanduser(path_f)
+                cmd = rsync + [path_f, to]
+            else:
+                rsync_cmd = '{} {} {}'.format(' '.join(rsync),
+                                              path_f,
+                                              to)
+                cmd = ['ssh', '{}@{}'.format(user_f, host_f), rsync_cmd]
+            run(cmd)
+
 
 
 def ping_host(host):

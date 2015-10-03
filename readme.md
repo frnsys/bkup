@@ -53,6 +53,8 @@ To use the __sync__ mode, just add `sync: true` to a task's configuration.
 
 The __sync__ mode should not have any `dirs` specified because it treats all directories as remote.
 
+The __sync__ mode requires that all listed hosts have SSH key access to each other (otherwise `rsync` will throw permission errors). As a reminder, this is easily accomplished by generating a key with `ssh-keygen` (if you do not already have one) and then copying the key to another host with `ssh-copy-id user@host`.
+
 ### Deleting files and the safety option
 For __push__ mode, the optional `never_delete` property is a setting which,
 if set to `true`, will never destructively sync, even if the user specifies it
