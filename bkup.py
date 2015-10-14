@@ -12,7 +12,7 @@ rsync = ['rsync', '-avuhz', '--progress']
 
 @click.command()
 @click.argument('task')
-@click.option('--delete', default=False, help='delete remote files not found locally. Ignored for sync tasks')
+@click.option('--delete', default=False, help='delete remote files not found locally. Ignored for sync tasks', is_flag=True)
 def bkup(task, delete):
     with open(os.path.expanduser('~/.bkup'), 'r') as f:
         conf = yaml.load(f)
