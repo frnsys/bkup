@@ -4,7 +4,7 @@ setup(
     name='bkup',
     version='1.1.0',
     description='easily backup directories',
-    url='https://github.com/ftzeng/bkup',
+    url='https://github.com/frnsys/bkup',
     author='Francis Tseng (@frnsys)',
     license='MIT',
 
